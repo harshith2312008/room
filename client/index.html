@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>room • by harshith</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+</head>
+<body>
+  <div id="three-container"></div>
+
+  <div class="login-screen" id="login-screen">
+    <div class="apple-card">
+      <h1>room</h1>
+      <p class="tagline">Talk in 3D</p>
+      <input type="text" id="username-input" placeholder="Enter your name" maxlength="20" autofocus>
+      <button onclick="joinRoom()">Join Room</button>
+    </div>
+  </div>
+
+  <div class="chat-app hidden" id="chat-screen">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>room</h2>
+        <p id="online-count">0 online</p>
+      </div>
+      <div id="users-list"></div>
+    </div>
+
+    <div class="main-chat">
+      <div class="chat-header">
+        <h3>General Room</h3>
+        <div id="typing-indicator" class="typing-indicator"></div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+      <div class="input-area">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="three-scene.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
