@@ -11,28 +11,42 @@
 <body>
   <div id="three-container"></div>
 
-  <div class="login-screen" id="login-screen">
+  <!-- Auth Screen -->
+  <div id="auth-screen" class="screen">
     <div class="apple-card">
       <h1>room</h1>
-      <p class="tagline">Talk in 3D</p>
-      <input type="text" id="username-input" placeholder="Enter your name" maxlength="20" autofocus>
-      <button onclick="joinRoom()">Join Room</button>
+      <p class="tagline">Connect with people</p>
+      
+      <div id="auth-form">
+        <input type="text" id="auth-username" placeholder="Username" required>
+        <input type="password" id="auth-password" placeholder="Password" required>
+        <button id="login-btn">Login</button>
+        <button id="register-btn">Register</button>
+        <p id="auth-message"></p>
+      </div>
     </div>
   </div>
 
-  <div class="chat-app hidden" id="chat-screen">
+  <!-- Chat Screen -->
+  <div id="chat-screen" class="screen hidden">
     <div class="sidebar">
       <div class="sidebar-header">
         <h2>room</h2>
-        <p id="online-count">0 online</p>
+        <button onclick="logout()">Logout</button>
       </div>
-      <div id="users-list"></div>
+      
+      <div class="tabs">
+        <button onclick="switchTab(0)" class="active">Public</button>
+        <button onclick="switchTab(1)">Private</button>
+      </div>
+
+      <div id="online-users"></div>
     </div>
 
     <div class="main-chat">
       <div class="chat-header">
-        <h3>General Room</h3>
-        <div id="typing-indicator" class="typing-indicator"></div>
+        <h3 id="room-title">General Room</h3>
+        <div id="typing-indicator"></div>
       </div>
 
       <div id="messages" class="messages"></div>
